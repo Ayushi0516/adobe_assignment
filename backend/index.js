@@ -1,6 +1,8 @@
  const express=require("express")
  const {connection}=require("./config/db")
  const {userController}=require("./routes/user.routes")
+ const {postController}=require("./routes/post.routes")
+ const {analyticsController}=require("./routes/analytic.routes")
  const cors = require("cors")
  require('dotenv').config()
 
@@ -14,6 +16,9 @@ const PORT=process.env.PORT ||8080;
     app.use(cors())
 
     app.use("/users",userController)
+    app.use("/posts",postController)
+    app.use("/analytics",analyticsController)
+
 
     app.listen(PORT,async()=>{
         try{
