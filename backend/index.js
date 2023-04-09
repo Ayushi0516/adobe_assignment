@@ -14,7 +14,7 @@ const PORT=process.env.PORT ||8080;
         res.send("Homepage")
     })
     app.use(cors())
-
+// routes 
     app.use("/users",userController)
     app.use("/posts",postController)
     app.use("/analytics",analyticsController)
