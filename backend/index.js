@@ -1,5 +1,6 @@
  const express=require("express")
  const {connection}=require("./config/db")
+ const {userController}=require("./routes/user.routes")
  const cors = require("cors")
  require('dotenv').config()
 
@@ -11,7 +12,8 @@ const PORT=process.env.PORT ||8080;
         res.send("Homepage")
     })
     app.use(cors())
-    
+
+    app.use("/users",userController)
 
     app.listen(PORT,async()=>{
         try{
